@@ -1,0 +1,330 @@
+/* ==================== Reset & Base ==================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: #f8f6f2; /* Krem lembut untuk keseluruhan halaman */
+  color: #4a4a4a;
+  overflow-x: hidden;
+}
+h1, h3 {
+  color: #333333;
+}
+
+/* ==================== Navbar ==================== */
+.navbar {
+  background: #fff3ea; /* Krem terang */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+.container-navbar {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 12px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.logo {
+  font-size: 20px;
+  font-weight: 700;
+  color: #333333;
+}
+.nav-links a {
+  margin: 0 16px;
+  text-decoration: none;
+  font-weight: 500;
+  color: #4a4a4a;
+  transition: color 0.2s;
+}
+.nav-links a:hover {
+  color: #d18c60;
+}
+.nav-actions {
+  display: flex;
+  align-items: center;
+}
+.search-wrapper {
+  position: relative;
+  margin-right: 12px;
+}
+.search-wrapper .fa-search {
+  position: absolute;
+  top: 50%;
+  left: 12px;
+  transform: translateY(-50%);
+  color: #888888;
+}
+.search-box {
+  padding: 6px 12px 6px 36px;
+  border-radius: 20px;
+  border: 1px solid #cccccc;
+  outline: none;
+  font-size: 14px;
+}
+.search-box:focus {
+  border-color: #d18c60;
+}
+.icon-action {
+  font-size: 18px;
+  margin: 0 8px;
+  color: #4a4a4a;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+.icon-action:hover {
+  color: #d18c60;
+}
+.profile-img {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-left: 8px;
+}
+
+/* ==================== Carousel Area ==================== */
+.carousel-container {
+  width: 100%;
+  padding: 0;
+  margin: 0;
+}
+.carousel {
+  position: relative;
+  max-width: 1200px;
+  height: 600px; /* Tinggi slide */
+  margin: 40px auto;
+  overflow: hidden;
+  border-radius: 8px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+}
+.carousel-inner {
+  display: flex;
+  width: 300%; /* 3 slide × 100% */
+  height: 100%;
+  transition: transform 0.6s ease-in-out;
+}
+.carousel-item {
+  position: relative;
+  flex: 0 0 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+.carousel-item.active {
+  opacity: 1;
+}
+
+/* Kotak semi‐transparan (overlay) menutupi kiri 50% */
+.overlay-box {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 50%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.85);
+  /* Jika ingin efek blur, uncomment baris berikut: */
+  /* backdrop-filter: blur(4px); */
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  padding-left: 40px; /* Ruang untuk teks di dalam */
+}
+
+/* Konten teks di atas overlay */
+.text-content {
+  max-width: 80%;
+}
+.text-content h1 {
+  font-size: 36px;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+.text-content p {
+  font-size: 16px;
+  line-height: 1.5;
+  color: #555555;
+}
+.btn-primary {
+  margin-top: 20px;
+  padding: 12px 28px;
+  background-color: #d18c60; /* Oranye-kecoklatan */
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 600;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.btn-primary:hover {
+  background-color: #b76c3a;
+}
+
+/* Info-box di pojok kanan bawah slide */
+.info-box {
+  position: absolute;
+  bottom: 24px;
+  right: 8%;
+  background-color: rgba(255, 255, 255, 0.95);
+  padding: 14px 20px;
+  border-radius: 6px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  z-index: 3;
+  max-width: 260px;
+}
+.info-box h3 {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+.info-box p {
+  font-size: 14px;
+  color: #666666;
+  margin-bottom: 6px;
+}
+.info-box strong {
+  font-size: 16px;
+  color: #333333;
+}
+
+/* Tombol navigasi Prev/Next */
+.carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: #fff3ea; /* Krem terang */
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  padding: 12px;
+  border-radius: 50%;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  transition: background 0.2s, color 0.2s;
+  z-index: 5;
+  color: #4a4a4a;
+}
+.carousel-btn:hover {
+  background-color: #d18c60;
+  color: #ffffff;
+}
+.carousel-btn.prev {
+  left: 16px;
+}
+.carousel-btn.next {
+  right: 16px;
+}
+
+/* ==================== Footer ==================== */
+.footer {
+  background-color: #fcf9f5;
+  padding: 40px 24px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: 0 auto 40px;
+}
+.footer-col {
+  flex: 1;
+  min-width: 180px;
+  margin: 12px;
+}
+.footer-col h3,
+.footer-col h4 {
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 12px;
+  color: #333333;
+}
+.footer-col p {
+  font-size: 14px;
+  color: #555555;
+  margin-bottom: 8px;
+}
+.subscribe-wrapper {
+  display: flex;
+  margin-top: 6px;
+}
+.subscribe-wrapper input {
+  flex: 1;
+  padding: 6px 10px;
+  border: 1px solid #cccccc;
+  border-radius: 4px 0 0 4px;
+  outline: none;
+  font-size: 14px;
+}
+.subscribe-wrapper button {
+  background-color: #d18c60;
+  border: none;
+  padding: 6px 12px;
+  color: #ffffff;
+  border-radius: 0 4px 4px 0;
+  cursor: pointer;
+}
+.subscribe-wrapper button:hover {
+  background-color: #b76c3a;
+}
+
+/* ==================== Responsive ==================== */
+@media (max-width: 1024px) {
+  .carousel {
+    height: 500px;
+  }
+  .overlay-box {
+    width: 60%; /* Lebar overlay di tablet */
+    padding-left: 24px;
+  }
+  .text-content h1 {
+    font-size: 32px;
+  }
+  .info-box {
+    right: 6%;
+    bottom: 16px;
+  }
+}
+@media (max-width: 768px) {
+  .carousel {
+    height: 350px;
+  }
+  .overlay-box {
+    width: 100%; /* Overlay penuh lebar agar teks terbaca */
+    background-color: rgba(255, 255, 255, 0.9);
+    padding-left: 16px;
+    padding-right: 16px;
+    justify-content: flex-start;
+    align-items: flex-start;
+  }
+  .text-content {
+    margin-top: 20px;
+    max-width: 100%;
+  }
+  .info-box {
+    position: relative;
+    bottom: auto;
+    right: auto;
+    margin: 12px auto 0;
+    max-width: 90%;
+    text-align: center;
+  }
+  .carousel-btn.prev {
+    left: 8px;
+  }
+  .carousel-btn.next {
+    right: 8px;
+  }
+  .nav-links a {
+    margin: 0 8px;
+  }
+  .container-navbar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .nav-links {
+    margin: 12px 0;
+  }
+}

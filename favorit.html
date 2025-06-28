@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Daftar Favorit - Kosbro</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Arial', sans-serif;
+    }
+
+    body {
+      background-color: #fffaf4;
+      color: #333;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    header {
+      background-color: #fff5ef;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+      border-bottom: 1px solid #eee;
+    }
+
+    .logo {
+      font-weight: bold;
+      font-size: 1.5rem;
+    }
+
+    nav a {
+      margin: 0 1rem;
+      text-decoration: none;
+      color: #333;
+    }
+
+    .search-container {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .search {
+      padding: 0.5rem;
+      width: 200px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    .icons {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      font-size: 1.25rem;
+    }
+
+    main {
+      padding: 3rem 2rem;
+      flex: 1;
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 2rem;
+      font-size: 2rem;
+      font-weight: bold;
+    }
+
+    .favorite-list {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+   .favorite-card {
+  background-color: #fbd5b7;
+  border-radius: 20px;
+  display: flex;
+  padding: 1rem;
+  align-items: center;
+  justify-content: space-between;
+  transition: all 0.3s ease-in-out;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+  cursor: pointer;
+}
+
+.favorite-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+  background-color: #f9caa2;
+}
+
+.favorite-card img {
+  width: 140px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 15px;
+  transition: all 0.3s ease;
+  filter: brightness(95%);
+}
+
+.favorite-card:hover img {
+  transform: scale(1.05);
+  filter: brightness(105%);
+}
+
+
+    .favorite-content {
+      flex: 1;
+      padding: 0 1rem;
+    }
+
+    .favorite-content h3 {
+      font-size: 1.2rem;
+      margin-bottom: 0.25rem;
+    }
+
+    .favorite-content p {
+      font-size: 0.9rem;
+      color: #444;
+    }
+
+    .favorite-actions {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 0.75rem;
+    }
+
+    .favorite-actions button {
+      padding: 0.4rem 1rem;
+      border: none;
+      border-radius: 8px;
+      background-color: #fff;
+      color: #333;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .favorite-actions .delete-btn {
+      background: none;
+      border: none;
+      color: red;
+      font-size: 1.5rem;
+      cursor: pointer;
+    }
+
+    footer {
+      background-color: #f9f9f9;
+      padding: 3rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+
+    footer div {
+      margin-bottom: 1.5rem;
+      line-height: 1.8;
+      min-width: 150px;
+    }
+
+    .email-box input {
+      padding: 0.5rem;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    .email-box button {
+      padding: 0.5rem 1rem;
+      background-color: #ea8e61;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .badge-new {
+      background-color: #00d084;
+      color: white;
+      font-size: 0.75rem;
+      padding: 0.3rem 0.5rem;
+      border-radius: 8px;
+      display: inline-block;
+      margin-top: 0.25rem;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">Kosbro.</div>
+    <nav>
+      <a href="#">Beranda</a>
+      <a href="#">Tips Kos</a>
+    </nav>
+    <div class="search-container">
+      <input class="search" type="text" placeholder="Kos Jogja">
+      <div class="icons">
+        <i class="fas fa-heart"></i>
+        <i class="fas fa-shopping-cart"></i>
+        <i class="fas fa-user-circle"></i>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <h1>Daftar Favorit</h1>
+    <div class="favorite-list">
+      <!-- Favorit 1 -->
+      <div class="favorite-card">
+        <img src="images/login.png" alt="Kost Pak Sudjiwo">
+        <div class="favorite-content">
+          <h3>Kost Pak Sudjiwo <span class="badge-new">New</span></h3>
+          <p>Jl. Bantul No. 45<br>
+            Kost putra ini menawarkan hunian yang nyaman dan strategis, cocok untuk mahasiswa maupun karyawan. Terletak di lingkungan yang tenang dengan akses mudah ke kampus, pusat kuliner, dan transportasi umum.
+          </p>
+        </div>
+        <div class="favorite-actions">
+          <button>Cek Kos</button>
+          <button class="delete-btn">🗑️</button>
+        </div>
+      </div>
+
+      <!-- Favorit 2 -->
+      <div class="favorite-card">
+        <img src="images/login.png" alt="Kost Pak Walter">
+        <div class="favorite-content">
+          <h3>Kost Pak Walter</h3>
+          <p>Jl. Bantul No. 45<br>
+            Kost putra ini menawarkan hunian yang nyaman dan strategis, cocok untuk mahasiswa maupun karyawan. Terletak di lingkungan yang tenang dengan akses mudah ke kampus, pusat kuliner, dan transportasi umum.
+          </p>
+        </div>
+        <div class="favorite-actions">
+          <button>Cek Kos</button>
+          <button class="delete-btn">🗑️</button>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <div>
+      <strong>Kosbro.</strong><br>
+      Platform pemesanan kos nomer 1 di Indonesia<br>
+      Depok Yogyakarta, Indonesia<br>
+      +6289 456 3455<br>
+      www.kosbro.com
+    </div>
+    <div>
+      <strong>Menu</strong><br>
+      Beranda<br>
+      Tips Kos
+    </div>
+    <div>
+      <strong>Account</strong><br>
+      Favourite<br>
+      Transaksi<br>
+      Profile
+    </div>
+    <div>
+      <strong>Stay Connected</strong><br>
+      Facebook<br>
+      Instagram<br>
+      Twitter
+    </div>
+    <div class="email-box">
+      <strong>Stay Updated</strong><br>
+      <input type="email" placeholder="Enter your email">
+      <button>&rarr;</button>
+    </div>
+  </footer>
+
+  <!-- Font Awesome (for icons) -->
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</body>
+</html>

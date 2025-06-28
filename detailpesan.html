@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Detail Pesanan - Kosbro</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      font-family: 'Arial', sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+      background-color: #fffefc;
+      color: #333;
+    }
+
+    header {
+      background-color: #fff5ef;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+      border-bottom: 1px solid #eee;
+    }
+
+    .logo {
+      font-weight: bold;
+      font-size: 1.5rem;
+    }
+
+    nav a {
+      margin: 0 1rem;
+      text-decoration: none;
+      color: #333;
+    }
+
+    .search-container {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .search {
+      padding: 0.5rem;
+      width: 200px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    .icons {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      font-size: 1.25rem;
+    }
+
+    main {
+      padding: 2rem;
+      flex: 1;
+    }
+
+    h2 {
+      font-size: 2rem;
+      margin-bottom: 1.5rem;
+      text-align: center;
+    }
+
+    .content-wrapper {
+      position: relative;
+      display: flex;
+      gap: 2rem;
+      background: #fdf9d7;
+      padding: 2rem;
+      border-radius: 20px;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+
+    .content-wrapper::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 50%;
+      width: 2px;
+      background-color: #ccc;
+      transform: translateX(-50%);
+    }
+
+    .section-left, .section-right {
+      flex: 1;
+      min-width: 300px;
+      z-index: 1;
+    }
+
+    .section-left h3, .section-right h3 {
+      margin-bottom: 1rem;
+    }
+
+    .kamar-options {
+      display: flex;
+      gap: 1rem;
+      margin: 1rem 0;
+    }
+
+    .kamar-options div {
+      text-align: center;
+      cursor: pointer;
+    }
+
+    .kamar-options img {
+      width: 100px;
+      height: 100px;
+      object-fit: cover;
+      border-radius: 50%;
+      margin-bottom: 0.5rem;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .kamar-options img:hover {
+      transform: scale(1.05);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    }
+
+    .jumlah-kamar {
+      margin: 1rem 0;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .jumlah-kamar button {
+      padding: 0.3rem 0.8rem;
+      font-size: 1rem;
+      border: none;
+      background: #ddd;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+
+    .payment-options {
+      display: flex;
+      gap: 1.5rem;
+      margin-top: 1rem;
+      justify-content: center;
+    }
+
+    .payment-options div {
+      text-align: center;
+      cursor: pointer;
+    }
+
+    .payment-options img {
+      width: 80px;
+      height: 80px;
+      object-fit: contain;
+      margin-bottom: 0.5rem;
+      border-radius: 50%;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .payment-options img:hover {
+      transform: scale(1.05);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    }
+
+    .btn-container {
+      margin-top: 2rem;
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+    }
+
+    .btn {
+      padding: 0.7rem 1.5rem;
+      border: none;
+      border-radius: 25px;
+      font-size: 1rem;
+      cursor: pointer;
+    }
+
+    .btn-success {
+      background: #4caf50;
+      color: white;
+    }
+
+    .btn-danger {
+      background: #f44336;
+      color: white;
+    }
+
+    .choice-label {
+      margin-top: 1rem;
+      text-align: center;
+      font-style: italic;
+      color: #555;
+    }
+
+    footer {
+      background-color: #f9f9f9;
+      padding: 3rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      margin-top: auto;
+    }
+
+    footer div {
+      margin-bottom: 1.5rem;
+      line-height: 1.8;
+      min-width: 150px;
+    }
+
+    .email-box input {
+      padding: 0.5rem;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    .email-box button {
+      padding: 0.5rem 1rem;
+      background-color: #ea8e61;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">Kosbro.</div>
+    <nav>
+      <a href="#">Beranda</a>
+      <a href="#">Tips Kos</a>
+    </nav>
+    <div class="search-container">
+      <input class="search" type="text" placeholder="Cari Kos">
+      <div class="icons">
+        <i class="fas fa-shopping-cart"></i>
+        <i class="fas fa-heart"></i>
+        <i class="fas fa-user-circle"></i>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <h2>Detail Pesanan</h2>
+    <div class="content-wrapper">
+      <div class="section-left">
+        <p><strong>Kos Rosemary</strong>, Jl. Gejayan No. 55, Sleman, Daerah Istimewa Yogyakarta</p>
+        <hr style="margin: 1rem 0;">
+        <p>Jenis Kamar yang dipesan:</p>
+        <div class="kamar-options">
+          <div onclick="selectOption('Unfurnished + AC')">
+            <img src="images/login.png" alt="Unfurnished">
+            <div>Unfurnished + AC</div>
+          </div>
+          <div onclick="selectOption('Furnished + AC')">
+            <img src="images/login.png" alt="Furnished">
+            <div>Furnished + AC</div>
+          </div>
+        </div>
+        <div class="jumlah-kamar">
+          Jumlah Kamar:
+          <button onclick="changeQuantity(-1)">-</button>
+          <span id="jumlahKamar">1</span>
+          <button onclick="changeQuantity(1)">+</button>
+        </div>
+        <p id="hargaNormal">Harga: 900.000,-</p>
+        <p id="hargaDiskon">Harga Setelah Diskon: 630.000,-</p>
+        <p>Kamar anda akan mulai aktif pada tanggal <strong>1 Agustus 2025</strong>.</p>
+      </div>
+
+      <div class="section-right">
+        <h3>Pilih Pembayaran</h3>
+        <div class="payment-options">
+          <div onclick="selectPayment('Bank')">
+            <img src="images/login.png" alt="Bank">
+            <div>Bank</div>
+          </div>
+          <div onclick="selectPayment('Minimarket')">
+            <img src="images/login.png" alt="Minimarket">
+            <div>Minimarket</div>
+          </div>
+          <div onclick="selectPayment('Cash')">
+            <img src="images/login.png" alt="Cash">
+            <div>Cash</div>
+          </div>
+        </div>
+        <div class="btn-container">
+          <button class="btn btn-success">Bayar Sekarang</button>
+          <button class="btn btn-danger">Batalkan</button>
+        </div>
+        <div id="selectedOption" class="choice-label"></div>
+        <div id="selectedPayment" class="choice-label"></div>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <div>
+      <strong>Kosbro.</strong><br>
+      Platform pemesanan kos nomer 1 di Indonesia<br>
+      Depok Yogyakarta, Indonesia<br>
+      +6289 456 3455<br>
+      www.kosbro.com
+    </div>
+    <div>
+      <strong>Menu</strong><br>
+      Beranda<br>
+      Tips Kos
+    </div>
+    <div>
+      <strong>Account</strong><br>
+      Favourite<br>
+      Transaksi<br>
+      Profile
+    </div>
+    <div>
+      <strong>Stay Connected</strong><br>
+      Facebook<br>
+      Instagram<br>
+      Twitter
+    </div>
+    <div class="email-box">
+      <strong>Stay Updated</strong><br>
+      <input type="email" placeholder="Enter your email">
+      <button>&rarr;</button>
+    </div>
+  </footer>
+
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+
+  <script>
+    let selectedType = 'Unfurnished + AC';
+    let jumlahKamar = 1;
+
+    function getHarga() {
+      return selectedType === 'Furnished + AC' ? 1000000 : 900000;
+    }
+
+    function updateHarga() {
+      const harga = getHarga();
+      const total = harga * jumlahKamar;
+      const diskon = total * 0.3;
+      const hargaDiskon = total - diskon;
+
+      document.getElementById('hargaNormal').textContent = 'Harga: ' + total.toLocaleString('id-ID') + ',-';
+      document.getElementById('hargaDiskon').textContent = 'Harga Setelah Diskon: ' + hargaDiskon.toLocaleString('id-ID') + ',-';
+      document.getElementById('jumlahKamar').textContent = jumlahKamar;
+    }
+
+    function selectOption(option) {
+      selectedType = option;
+      document.getElementById('selectedOption').textContent = 'Pilihan Anda: ' + option;
+      updateHarga();
+    }
+
+    function changeQuantity(change) {
+      jumlahKamar = Math.max(1, jumlahKamar + change);
+      updateHarga();
+    }
+
+    function selectPayment(method) {
+      document.getElementById('selectedPayment').textContent = 'Metode Pembayaran: ' + method;
+    }
+
+    // Inisialisasi awal
+    updateHarga();
+  </script>
+</body>
+</html>

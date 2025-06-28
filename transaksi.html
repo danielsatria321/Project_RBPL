@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Daftar Transaksi</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #fff7f0;
+      color: #333;
+    }
+
+    /* Header */
+    header {
+      background-color: #fff;
+      padding: 1rem 5%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid #eee;
+    }
+
+    .logo {
+      font-weight: bold;
+      font-size: 1.4rem;
+    }
+
+    nav a {
+      margin: 0 1rem;
+      text-decoration: none;
+      color: #333;
+      font-weight: 500;
+    }
+
+    .search-bar {
+      padding: 0.4rem 0.8rem;
+      border-radius: 10px;
+      border: 1px solid #ccc;
+      width: 200px;
+    }
+
+    .icon-group img {
+      width: 24px;
+      height: 24px;
+      margin-left: 1rem;
+      vertical-align: middle;
+    }
+
+    /* Transaksi Section */
+    .transaksi-container {
+      padding: 2rem 5%;
+    }
+
+    .judul-halaman {
+      font-size: 2.2rem;
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+
+    .transaksi-card {
+      background-color: #fbd5b7;
+      border-radius: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1rem 1.5rem;
+      margin-bottom: 1.5rem;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+      transition: all 0.3s ease-in-out;
+      cursor: pointer;
+    }
+
+    .transaksi-card:hover {
+      background-color: #f9caa2;
+      transform: translateY(-4px);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+    }
+
+    .transaksi-card img {
+      width: 140px;
+      height: 100px;
+      object-fit: cover;
+      border-radius: 15px;
+      margin-right: 1.2rem;
+      transition: all 0.3s ease;
+      filter: brightness(95%);
+    }
+
+    .transaksi-card:hover img {
+      transform: scale(1.05);
+      filter: brightness(105%);
+    }
+
+    .transaksi-info {
+      flex-grow: 1;
+    }
+
+    .transaksi-info h3 {
+      margin: 0 0 0.3rem;
+    }
+
+    .transaksi-info p {
+      margin: 0.2rem 0;
+    }
+
+    .btn-cek {
+      background-color: #fff;
+      border: none;
+      padding: 0.5rem 1rem;
+      border-radius: 25px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: background-color 0.3s;
+    }
+
+    .btn-cek:hover {
+      background-color: #ffe2c3;
+    }
+
+    /* Footer */
+    footer {
+      background-color: #fff;
+      padding: 2rem 5%;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      border-top: 1px solid #eee;
+      margin-top: 3rem;
+    }
+
+    footer div {
+      margin-bottom: 1rem;
+    }
+
+    footer h4 {
+      margin-bottom: 0.5rem;
+    }
+
+    footer a {
+      display: block;
+      margin-bottom: 0.3rem;
+      color: #333;
+      text-decoration: none;
+    }
+
+    .subscribe input {
+      padding: 0.4rem 0.6rem;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      width: 200px;
+    }
+
+    .subscribe button {
+      background-color: #f4a261;
+      border: none;
+      padding: 0.4rem 0.7rem;
+      border-radius: 5px;
+      color: #fff;
+      cursor: pointer;
+      margin-left: 0.3rem;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <div class="logo">Kosbro.</div>
+    <nav>
+      <a href="#">Beranda</a>
+      <a href="#">Tips Kos</a>
+    </nav>
+    <input type="text" class="search-bar" placeholder="Kos Jogja"/>
+    <div class="icon-group">
+      <img src="https://cdn-icons-png.flaticon.com/512/1077/1077035.png" alt="Wishlist">
+      <img src="https://cdn-icons-png.flaticon.com/512/1170/1170678.png" alt="Cart">
+      <img src="https://cdn-icons-png.flaticon.com/512/149/149071.png" alt="Profile">
+    </div>
+  </header>
+
+  <!-- Main Transaksi -->
+  <div class="transaksi-container">
+    <h2 class="judul-halaman">Daftar Transaksi</h2>
+
+    <div class="transaksi-card">
+      <img src="images/login.png" alt="Kost Pak Sudjiwo" />
+      <div class="transaksi-info">
+        <h3>Kost Pak Sudjiwo</h3>
+        <p><strong>Rp 825.000,-</strong></p>
+        <p>Telah Lunas Dibayar Pada 12 Juni 2025</p>
+        <p>Kos Mulai Bisa Ditempati Pada Tanggal <strong>1 Agustus 2025</strong></p>
+        <p><strong>No. Telepon Pemilik Kos : 08225674832</strong></p>
+      </div>
+      <button class="btn-cek">Cek Kos</button>
+    </div>
+
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <div>
+      <h4>Kosbro.</h4>
+      <p>Platform pemesanan kos nomor 1 di Indonesia</p>
+      <p>Depok Yogyakarta, Indonesia</p>
+      <p>+6289 456 3455</p>
+      <p>www.kosbro.com</p>
+    </div>
+    <div>
+      <h4>Menu</h4>
+      <a href="#">Beranda</a>
+      <a href="#">Tips Kos</a>
+    </div>
+    <div>
+      <h4>Account</h4>
+      <a href="#">Favourite</a>
+      <a href="#">Transaksi</a>
+      <a href="#">Profile</a>
+    </div>
+    <div>
+      <h4>Stay Connected</h4>
+      <a href="#">Facebook</a>
+      <a href="#">Instagram</a>
+      <a href="#">Twitter</a>
+    </div>
+    <div class="subscribe">
+      <h4>Stay Updated</h4>
+      <input type="email" placeholder="Enter your email" />
+      <button>➤</button>
+    </div>
+  </footer>
+
+</body>
+</html>

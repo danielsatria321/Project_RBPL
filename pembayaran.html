@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pembayaran - Kosbro</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      font-family: 'Arial', sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: #fffefc;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+      color: #333;
+    }
+
+    header {
+      background-color: #fff5ef;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+      border-bottom: 1px solid #eee;
+    }
+
+    .logo {
+      font-weight: bold;
+      font-size: 1.5rem;
+    }
+
+    nav a {
+      margin: 0 1rem;
+      text-decoration: none;
+      color: #333;
+    }
+
+    .search-container {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .search {
+      padding: 0.5rem;
+      width: 200px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    main {
+      flex: 1;
+      padding: 2rem;
+      text-align: center;
+    }
+
+    .card {
+      background: #ffe6b8;
+      max-width: 500px;
+      margin: 2rem auto;
+      padding: 2rem;
+      border-radius: 25px;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    }
+
+    .va-number {
+      font-size: 1.5rem;
+      font-weight: bold;
+      margin: 1rem 0;
+    }
+
+    .timer {
+      font-weight: bold;
+      margin: 0.5rem 0 1rem;
+    }
+
+    .instructions {
+      text-align: left;
+      margin-top: 1.5rem;
+      font-size: 0.95rem;
+    }
+
+    footer {
+      background-color: #f9f9f9;
+      padding: 2rem;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+
+    footer div {
+      margin-bottom: 1rem;
+      min-width: 150px;
+    }
+
+    .popup {
+      position: fixed;
+      top: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: #4caf50;
+      color: white;
+      padding: 1rem 2rem;
+      border-radius: 12px;
+      font-weight: bold;
+      display: none;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+      animation: fadein 0.5s ease-in-out;
+    }
+
+    @keyframes fadein {
+      from { opacity: 0; transform: translate(-50%, -20px); }
+      to { opacity: 1; transform: translate(-50%, 0); }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">Kosbro.</div>
+    <nav>
+      <a href="#">Beranda</a>
+      <a href="#">Tips Kos</a>
+    </nav>
+    <div class="search-container">
+      <input class="search" type="text" placeholder="Kos Jogja">
+    </div>
+  </header>
+
+  <main>
+    <h2>Pembayaran</h2>
+    <div class="card">
+      <div>Nomor Virtual Account</div>
+      <div class="va-number">8077 1823 2343 2345</div>
+      <div class="timer">Selesaikan Pembayaran dalam <span id="countdown">03:00</span></div>
+      <div class="instructions">
+        <strong>Petunjuk Pembayaran</strong>
+        <ol>
+          <li>Gunakan nomor VA yang telah diberikan untuk melakukan pembayaran melalui ATM, mobile banking, internet banking, atau teller bank sesuai pilihan Anda.</li>
+          <li>Periksa kembali nomor VA dan jumlah pembayaran sebelum menyelesaikan transaksi agar tidak terjadi kesalahan.</li>
+          <li>Setelah pembayaran berhasil, sistem akan memverifikasi secara otomatis dalam beberapa menit tanpa perlu konfirmasi manual.</li>
+        </ol>
+      </div>
+    </div>
+  </main>
+
+  <div id="popup" class="popup">Pembayaran Berhasil!</div>
+
+  <footer>
+    <div>
+      <strong>Kosbro.</strong><br>
+      Platform pemesanan kos nomer 1 di Indonesia<br>
+      Depok Yogyakarta, Indonesia<br>
+      +6289 456 3455<br>
+      www.kosbro.com
+    </div>
+    <div><strong>Menu</strong><br>Beranda<br>Tips Kos</div>
+    <div><strong>Account</strong><br>Favourite<br>Transaksi<br>Profile</div>
+    <div><strong>Stay Connected</strong><br>Facebook<br>Instagram<br>Twitter</div>
+    <div>
+      <strong>Stay Updated</strong><br>
+      <input type="email" placeholder="Enter your email">
+      <button style="background:#ea8e61;color:white;border:none;padding:0.5rem 1rem;border-radius:5px;">&rarr;</button>
+    </div>
+  </footer>
+
+  <script>
+    // Timer countdown
+    let timeLeft = 10; // seconds (change this to 180 for 3 minutes)
+    const countdown = document.getElementById("countdown");
+
+    const timer = setInterval(() => {
+      let minutes = Math.floor(timeLeft / 60).toString().padStart(2, '0');
+      let seconds = (timeLeft % 60).toString().padStart(2, '0');
+      countdown.textContent = `${minutes}:${seconds}`;
+      timeLeft--;
+
+      if (timeLeft < 0) {
+        clearInterval(timer);
+        document.getElementById('popup').style.display = 'block';
+        setTimeout(() => {
+          window.location.href = "pembayaran-berhasil.html";
+        }, 1500);
+      }
+    }, 1000);
+  </script>
+</body>
+</html>

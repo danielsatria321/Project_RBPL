@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pembayaran Berhasil - Kosbro</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Arial', sans-serif;
+    }
+
+    body {
+      background-color: #fffefc;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+      color: #333;
+    }
+
+    header {
+      background-color: #fff5ef;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+      border-bottom: 1px solid #eee;
+    }
+
+    .logo {
+      font-weight: bold;
+      font-size: 1.5rem;
+    }
+
+    nav a {
+      margin: 0 1rem;
+      text-decoration: none;
+      color: #333;
+    }
+
+    .search-container {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .search {
+      padding: 0.5rem;
+      width: 200px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    .icons {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      font-size: 1.25rem;
+    }
+
+    main {
+      text-align: center;
+      padding: 4rem 2rem;
+      flex: 1;
+    }
+
+    .checkmark {
+      width: 150px;
+      height: 150px;
+      background-color: #8fed92;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 2rem auto;
+    }
+
+    .checkmark::before {
+      content: "✓";
+      font-size: 5rem;
+      color: white;
+    }
+
+    h1 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+
+    h2 {
+      font-size: 1.2rem;
+      color: #555;
+    }
+
+    footer {
+      background-color: #f9f9f9;
+      padding: 3rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+
+    footer div {
+      margin-bottom: 1.5rem;
+      line-height: 1.8;
+      min-width: 150px;
+    }
+
+    .email-box input {
+      padding: 0.5rem;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    .email-box button {
+      padding: 0.5rem 1rem;
+      background-color: #ea8e61;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">Kosbro.</div>
+    <nav>
+      <a href="#">Beranda</a>
+      <a href="#">Tips Kos</a>
+    </nav>
+    <div class="search-container">
+      <input class="search" type="text" placeholder="Kos Jogja">
+      <div class="icons">
+        <i class="fas fa-heart"></i>
+        <i class="fas fa-shopping-cart"></i>
+        <i class="fas fa-user-circle"></i>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <h1>Pembayaran Berhasil</h1>
+    <div class="checkmark"></div>
+    <h2>Pembayaran Berhasil Terkonfirmasi</h2>
+    <p>Anda dapat menempati kamar mulai tanggal <strong>1 Agustus 2025</strong></p>
+  </main>
+
+  <footer>
+    <div>
+      <strong>Kosbro.</strong><br>
+      Platform pemesanan kos nomer 1 di Indonesia<br>
+      Depok Yogyakarta, Indonesia<br>
+      +6289 456 3455<br>
+      www.kosbro.com
+    </div>
+    <div>
+      <strong>Menu</strong><br>
+      Beranda<br>
+      Tips Kos
+    </div>
+    <div>
+      <strong>Account</strong><br>
+      Favourite<br>
+      Transaksi<br>
+      Profile
+    </div>
+    <div>
+      <strong>Stay Connected</strong><br>
+      Facebook<br>
+      Instagram<br>
+      Twitter
+    </div>
+    <div class="email-box">
+      <strong>Stay Updated</strong><br>
+      <input type="email" placeholder="Enter your email">
+      <button>&rarr;</button>
+    </div>
+  </footer>
+
+  <!-- Font Awesome -->
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</body>
+</html>

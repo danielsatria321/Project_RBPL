@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kosbro Dashboard</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.10.7/dist/sweetalert2.min.css">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Arial', sans-serif;
+    }
+    html, body {
+      height: 100%;
+    }
+    body {
+      background-color: #fefefe;
+      color: #333;
+      display: flex;
+      flex-direction: column;
+    }
+    header {
+      background-color: #fff5ef;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+      border-bottom: 1px solid #eee;
+    }
+    .logo {
+      font-weight: bold;
+      font-size: 1.5rem;
+      display: flex;
+      gap: 2px;
+    }
+    .logo span {
+      display: inline-block;
+      animation: wave 4s infinite;
+    }
+    .logo span:nth-child(1) { animation-delay: 0s; }
+    .logo span:nth-child(2) { animation-delay: 0.1s; }
+    .logo span:nth-child(3) { animation-delay: 0.2s; }
+    .logo span:nth-child(4) { animation-delay: 0.3s; }
+    .logo span:nth-child(5) { animation-delay: 0.4s; }
+    .logo span:nth-child(6) { animation-delay: 0.5s; }
+    .logo span:nth-child(7) { animation-delay: 0.6s; }
+
+    @keyframes wave {
+      0%, 100% { transform: translateY(0); }
+      25% { transform: translateY(-5px); }
+      50% { transform: translateY(0); }
+      75% { transform: translateY(5px); }
+    }
+
+    nav a {
+      margin: 0 1rem;
+      text-decoration: none;
+      color: #333;
+    }
+    .search-container {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+    .search {
+      padding: 0.5rem;
+      width: 300px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    .icons {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      font-size: 1.25rem;
+    }
+    .carousel-container {
+      position: relative;
+      max-width: 100%;
+      overflow: hidden;
+      margin-top: 1rem;
+    }
+    .carousel-controls {
+      position: absolute;
+      top: 10px;
+      right: 20px;
+      display: flex;
+      gap: 10px;
+      z-index: 10;
+    }
+    .carousel-controls button {
+      background: linear-gradient(to right, #ff9a76, #ff6f61);
+      color: white;
+      border: none;
+      font-size: 1.2rem;
+      padding: 0.4rem 1rem;
+      cursor: pointer;
+      border-radius: 30px;
+      transition: transform 0.3s ease, background 0.3s ease;
+    }
+    .carousel-controls button:hover {
+      transform: scale(1.1);
+      background: linear-gradient(to right, #ffb78f, #ff8f7b);
+    }
+    .carousel {
+      display: flex;
+      transition: transform 1s ease;
+    }
+    .carousel-item {
+      position: relative;
+      min-width: 100%;
+      height: 400px;
+    }
+    .carousel-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .carousel-caption {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      width: 50%;
+      background: rgba(255, 255, 255, 0.85);
+      padding: 3rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .carousel-caption h1 {
+      font-size: 2.5rem;
+      font-weight: bold;
+      margin-bottom: 1rem;
+    }
+    .carousel-caption p {
+      font-size: 1rem;
+      margin-bottom: 1.5rem;
+    }
+    .carousel-caption button {
+      padding: 0.5rem 1rem;
+      font-size: 0.9rem;
+      background-color: #ea8e61;
+      color: white;
+      border: none;
+      font-weight: bold;
+      cursor: pointer;
+      border-radius: 5px;
+      transition: background 0.3s, transform 0.3s;
+    }
+    .carousel-caption button:hover {
+      background-color: #ff9a76;
+      transform: scale(1.05) rotate(-1deg);
+    }
+    footer {
+      margin-top: auto;
+      background-color: #f9f9f9;
+      display: flex;
+      justify-content: space-between;
+      padding: 4rem 2rem;
+      flex-wrap: wrap;
+      width: 100%;
+    }
+    footer div {
+      margin-bottom: 2rem;
+      min-width: 150px;
+      line-height: 1.8;
+    }
+    .email-box input {
+      padding: 0.5rem;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    .email-box button {
+      padding: 0.5rem 1rem;
+      background-color: #ea8e61;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    @media (max-width: 768px) {
+      .carousel-caption {
+        width: 100%;
+        padding: 1.5rem;
+      }
+      .carousel-caption h1 {
+        font-size: 1.5rem;
+      }
+      .carousel-caption p {
+        font-size: 0.9rem;
+      }
+      .carousel-caption button {
+        font-size: 0.8rem;
+        padding: 0.4rem 0.75rem;
+      }
+    }
+  </style>
+ <script src="https://kit.fontawesome.com/6e1be91334.js" crossorigin="anonymous"></script>
+<body>
+  <header>
+    <div class="logo">
+      <span>K</span><span>o</span><span>s</span><span>b</span><span>r</span><span>o</span><span>.</span>
+    </div>
+    <nav>
+      <a href="#">Beranda</a>
+      <a href="#">Tips Kos</a>
+    </nav>
+    <div class="search-container">
+      <input class="search" type="text" placeholder="Cari Kos">
+      <div class="icons">
+        <i class="fas fa-shopping-cart"></i>
+        <i class="fas fa-heart"></i>
+        <i class="fas fa-user-circle"></i>
+      </div>
+    </div>
+  </header>
+
+  <div class="carousel-container">
+    <div class="carousel-controls">
+      <button onclick="prevSlide()">❮</button>
+      <button onclick="nextSlide()">❯</button>
+    </div>
+    <div class="carousel" id="carousel">
+      <div class="carousel-item">
+        <img src="images/login.png" alt="Slide 1">
+        <div class="carousel-caption">
+          <h1>Pesan Kos Sekarang Juga !</h1>
+          <p>Lebih dari 1,200 kos dari seluruh kota di Indonesia telah bermitra dengan <strong>Kosbro</strong>.</p>
+          <button onclick="showAlert('Pesan Sekarang !')">Pesan Sekarang !</button>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <img src="images/login.png" alt="Slide 2">
+        <div class="carousel-caption">
+          <h1>Kost Edelweiss</h1>
+          <p>Jl. Babarsari, Yogyakarta<br><strong>Rp 1.120.000 / month</strong></p>
+          <button onclick="showAlert('Lihat Detail Kost Edelweiss')">Lihat Detail</button>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <img src="images/login.png" alt="Slide 3">
+        <div class="carousel-caption">
+          <h1>Temukan Kos Impianmu</h1>
+          <p>Mudah, cepat, dan terpercaya dalam satu platform: <strong>Kosbro</strong>.</p>
+          <button onclick="showAlert('Mulai Sekarang')">Mulai Sekarang</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <div>
+      <strong>Kosbro.</strong><br>
+      Platform pemesanan kos nomer 1 di Indonesia<br>
+      Depok Yogyakarta, Indonesia<br>
+      +6289 456 3455<br>
+      www.kosbro.com
+    </div>
+    <div>
+      <strong>Menu</strong><br>
+      Beranda<br>
+      Tips Kos
+    </div>
+    <div>
+      <strong>Account</strong><br>
+      Favourite<br>
+      Transaksi<br>
+      Profile
+    </div>
+    <div>
+      <strong>Stay Connected</strong><br>
+      Facebook<br>
+      Instagram<br>
+      Twitter
+    </div>
+    <div class="email-box">
+      <strong>Stay Updated</strong><br>
+      <input type="email" placeholder="Enter your email">
+      <button>&rarr;</button>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.10.7/dist/sweetalert2.all.min.js"></script>
+  <script>
+    let index = 0;
+    const carousel = document.getElementById('carousel');
+    const total = carousel.children.length;
+
+    function nextSlide() {
+      index = (index + 1) % total;
+      carousel.style.transform = `translateX(-${index * 100}%)`;
+    }
+
+    function prevSlide() {
+      index = (index - 1 + total) % total;
+      carousel.style.transform = `translateX(-${index * 100}%)`;
+    }
+
+    function showAlert(message) {
+      Swal.fire({
+        title: 'Informasi',
+        text: message,
+        icon: 'info',
+        confirmButtonText: 'OK'
+      });
+    }
+
+    setInterval(nextSlide, 6000);
+  </script>
+</body>
+</html>
